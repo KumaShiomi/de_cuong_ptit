@@ -655,7 +655,309 @@ Giả sử $f'(x_0) = 0$ và $f''(x_0) \neq 0$:
 \[a = \lim_{x \to \pm\infty} \frac{f(x)}{x}, \quad b = \lim_{x \to \pm\infty} [f(x) - ax]\]
 
 \newpage
+\section{CHƯƠNG 4: PHÉP TÍNH TÍCH PHÂN}
 
+\subsection{Tích phân bất định}
+
+\subsubsection{Nguyên hàm và tích phân bất định}
+
+\begin{definition}[Nguyên hàm]
+Hàm $F(x)$ được gọi là nguyên hàm của hàm $f(x)$ trên khoảng $(a,b)$ nếu:
+$$F'(x) = f(x), \quad \forall x \in (a,b)$$
+\end{definition}
+
+\begin{definition}[Tích phân bất định]
+Tập hợp tất cả các nguyên hàm của $f(x)$ trên $(a,b)$ được gọi là tích phân bất định của $f(x)$, ký hiệu:
+$$\int f(x)dx = F(x) + C$$
+trong đó $F(x)$ là một nguyên hàm của $f(x)$ và $C$ là hằng số tùy ý.
+\end{definition}
+
+\subsubsection{Tính chất của tích phân bất định}
+
+\begin{enumerate}
+    \item $\left(\int f(x)dx\right)' = f(x)$
+    \item $d\left(\int f(x)dx\right) = f(x)dx$
+    \item $\int dF(x) = F(x) + C$
+    \item $\int [f(x) \pm g(x)]dx = \int f(x)dx \pm \int g(x)dx$
+    \item $\int kf(x)dx = k\int f(x)dx$ ($k$ là hằng số, $k \neq 0$)
+\end{enumerate}
+
+\subsubsection{Bảng nguyên hàm cơ bản}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Bảng nguyên hàm]
+\begin{align*}
+1. &\quad \int 0\,dx = C\\
+2. &\quad \int x^\alpha dx = \frac{x^{\alpha+1}}{\alpha+1} + C \quad (\alpha \neq -1)\\
+3. &\quad \int \frac{1}{x}dx = \ln|x| + C\\
+4. &\quad \int e^x dx = e^x + C\\
+5. &\quad \int a^x dx = \frac{a^x}{\ln a} + C \quad (a > 0, a \neq 1)\\
+6. &\quad \int \sin x\,dx = -\cos x + C\\
+7. &\quad \int \cos x\,dx = \sin x + C\\
+8. &\quad \int \frac{1}{\cos^2 x}dx = \tan x + C\\
+9. &\quad \int \frac{1}{\sin^2 x}dx = -\cot x + C\\
+10. &\quad \int \frac{1}{\sqrt{1-x^2}}dx = \arcsin x + C\\
+11. &\quad \int \frac{1}{1+x^2}dx = \arctan x + C\\
+12. &\quad \int \frac{1}{\sqrt{x^2 \pm a^2}}dx = \ln|x + \sqrt{x^2 \pm a^2}| + C\\
+13. &\quad \int \frac{1}{x^2 - a^2}dx = \frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right| + C\\
+14. &\quad \int \frac{1}{a^2 - x^2}dx = \frac{1}{2a}\ln\left|\frac{a+x}{a-x}\right| + C
+\end{align*}
+\end{tcolorbox}
+
+\subsection{Các phương pháp tính tích phân bất định}
+
+\subsubsection{Phương pháp đổi biến số}
+
+\begin{theorem}[Đổi biến dạng 1]
+Nếu $x = \varphi(t)$ và $\varphi$ khả vi liên tục thì:
+$$\int f(x)dx = \int f(\varphi(t))\varphi'(t)dt$$
+\end{theorem}
+
+\begin{theorem}[Đổi biến dạng 2]
+Nếu đặt $t = \psi(x)$ thì:
+$$\int f(x)dx = \int g(t)dt\Big|_{t=\psi(x)}$$
+\end{theorem}
+
+\textbf{Các phép đổi biến thường dùng:}
+\begin{itemize}
+    \item Chứa $\sqrt{a^2 - x^2}$: đặt $x = a\sin t$ hoặc $x = a\cos t$
+    \item Chứa $\sqrt{a^2 + x^2}$: đặt $x = a\tan t$
+    \item Chứa $\sqrt{x^2 - a^2}$: đặt $x = \frac{a}{\cos t}$
+    \item Chứa $\sqrt[n]{ax + b}$: đặt $t = \sqrt[n]{ax + b}$
+\end{itemize}
+
+\subsubsection{Phương pháp tích phân từng phần}
+
+\begin{theorem}[Tích phân từng phần]
+$$\int u\,dv = uv - \int v\,du$$
+\end{theorem}
+
+\textbf{Nguyên tắc chọn $u$ và $dv$:}
+
+Thứ tự ưu tiên chọn $u$: \textbf{Logarit} $\to$ \textbf{Đa thức} $\to$ \textbf{Lượng giác} $\to$ \textbf{Mũ}
+
+\textbf{Các dạng thường gặp:}
+\begin{enumerate}
+    \item $\int P_n(x)e^{ax}dx$: Chọn $u = P_n(x)$, $dv = e^{ax}dx$
+    \item $\int P_n(x)\sin(ax)dx$ hoặc $\int P_n(x)\cos(ax)dx$: Chọn $u = P_n(x)$
+    \item $\int P_n(x)\ln x\,dx$: Chọn $u = \ln x$, $dv = P_n(x)dx$
+    \item $\int e^{ax}\sin(bx)dx$ hoặc $\int e^{ax}\cos(bx)dx$: Tích phân từng phần 2 lần
+\end{enumerate}
+
+\subsection{Tích phân xác định}
+
+\subsubsection{Định nghĩa tích phân xác định}
+
+\begin{definition}[Tích phân xác định]
+Cho hàm $f$ khả tích trên $[a,b]$. Tích phân xác định của $f$ trên $[a,b]$ là:
+$$\int_a^b f(x)dx = \lim_{\lambda \to 0} \sum_{i=1}^{n} f(\xi_i)\Delta x_i$$
+trong đó $a = x_0 < x_1 < \ldots < x_n = b$, $\Delta x_i = x_i - x_{i-1}$, $\lambda = \max\{\Delta x_i\}$, $\xi_i \in [x_{i-1}, x_i]$.
+\end{definition}
+
+\textbf{Quy ước:}
+$$\int_a^a f(x)dx = 0, \quad \int_a^b f(x)dx = -\int_b^a f(x)dx$$
+
+\subsubsection{Điều kiện khả tích}
+
+\textbf{Điều kiện đủ:}
+\begin{enumerate}
+    \item Hàm liên tục trên $[a,b]$ thì khả tích
+    \item Hàm đơn điệu và bị chặn trên $[a,b]$ thì khả tích
+    \item Hàm liên tục từng khúc trên $[a,b]$ thì khả tích
+\end{enumerate}
+
+\subsubsection{Tính chất của tích phân xác định}
+
+\begin{enumerate}
+    \item $\int_a^b [f(x) \pm g(x)]dx = \int_a^b f(x)dx \pm \int_a^b g(x)dx$
+    
+    \item $\int_a^b kf(x)dx = k\int_a^b f(x)dx$
+    
+    \item $\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx$ với $c \in (a,b)$
+    
+    \item Nếu $f(x) \geq 0$ trên $[a,b]$ thì $\int_a^b f(x)dx \geq 0$
+    
+    \item Nếu $f(x) \leq g(x)$ trên $[a,b]$ thì $\int_a^b f(x)dx \leq \int_a^b g(x)dx$
+    
+    \item $\left|\int_a^b f(x)dx\right| \leq \int_a^b |f(x)|dx$
+    
+    \item Nếu $m \leq f(x) \leq M$ trên $[a,b]$ thì:
+    $$m(b-a) \leq \int_a^b f(x)dx \leq M(b-a)$$
+\end{enumerate}
+
+\subsubsection{Định lý giá trị trung bình}
+
+\begin{theorem}[Định lý giá trị trung bình]
+Nếu $f$ liên tục trên $[a,b]$ thì tồn tại $c \in (a,b)$ sao cho:
+$$\int_a^b f(x)dx = f(c)(b-a)$$
+\end{theorem}
+
+\subsubsection{Công thức Newton-Leibniz}
+
+\begin{theorem}[Công thức Newton-Leibniz]
+Nếu $f$ liên tục trên $[a,b]$ và $F$ là một nguyên hàm của $f$ thì:
+$$\int_a^b f(x)dx = F(b) - F(a) = F(x)\Big|_a^b$$
+\end{theorem}
+
+\subsection{Các phương pháp tính tích phân xác định}
+
+\subsubsection{Phương pháp đổi biến số}
+
+\begin{theorem}[Đổi biến trong tích phân xác định]
+Nếu $x = \varphi(t)$, $\varphi'$ liên tục, $\varphi(\alpha) = a$, $\varphi(\beta) = b$ thì:
+$$\int_a^b f(x)dx = \int_\alpha^\beta f(\varphi(t))\varphi'(t)dt$$
+\end{theorem}
+
+\subsubsection{Phương pháp tích phân từng phần}
+
+$$\int_a^b u(x)v'(x)dx = u(x)v(x)\Big|_a^b - \int_a^b v(x)u'(x)dx$$
+
+\subsection{Tích phân hàm hữu tỉ}
+
+\subsubsection{Phân tích hàm hữu tỉ}
+
+Hàm hữu tỉ: $R(x) = \frac{P(x)}{Q(x)}$ với $P, Q$ là đa thức
+
+\textbf{Bước 1:} Nếu $\deg P \geq \deg Q$ thì chia đa thức
+
+\textbf{Bước 2:} Phân tích $Q(x)$ thành tích các thừa số
+
+\textbf{Bước 3:} Phân tích thành tổng các phân thức tối giản
+
+\subsubsection{Tích phân các phân thức tối giản}
+
+\textbf{Loại 1:} $\int \frac{A}{(x-a)^n}dx$
+\begin{itemize}
+    \item Nếu $n = 1$: $\int \frac{A}{x-a}dx = A\ln|x-a| + C$
+    \item Nếu $n > 1$: $\int \frac{A}{(x-a)^n}dx = \frac{A}{(1-n)(x-a)^{n-1}} + C$
+\end{itemize}
+
+\textbf{Loại 2:} $\int \frac{Mx + N}{(x^2 + px + q)^n}dx$ với $p^2 - 4q < 0$
+
+Đặt $x^2 + px + q = \left(x + \frac{p}{2}\right)^2 + \left(q - \frac{p^2}{4}\right)$
+
+\subsection{Tích phân hàm lượng giác}
+
+\subsubsection{Tích phân $\int R(\sin x, \cos x)dx$}
+
+\textbf{Phép đổi biến vạn năng:} $t = \tan\frac{x}{2}$
+$$\sin x = \frac{2t}{1+t^2}, \quad \cos x = \frac{1-t^2}{1+t^2}, \quad dx = \frac{2dt}{1+t^2}$$
+
+\textbf{Các trường hợp đặc biệt:}
+\begin{enumerate}
+    \item $R(-\sin x, \cos x) = -R(\sin x, \cos x)$: đặt $t = \cos x$
+    \item $R(\sin x, -\cos x) = -R(\sin x, \cos x)$: đặt $t = \sin x$
+    \item $R(-\sin x, -\cos x) = R(\sin x, \cos x)$: đặt $t = \tan x$
+\end{enumerate}
+
+\subsubsection{Tích phân $\int \sin^m x \cos^n x\,dx$}
+
+\begin{itemize}
+    \item \textbf{$m$ lẻ:} Đặt $t = \cos x$
+    \item \textbf{$n$ lẻ:} Đặt $t = \sin x$
+    \item \textbf{$m, n$ đều chẵn:} Dùng công thức hạ bậc:
+    \begin{align*}
+        \sin^2 x &= \frac{1 - \cos 2x}{2}\\
+        \cos^2 x &= \frac{1 + \cos 2x}{2}\\
+        \sin x \cos x &= \frac{\sin 2x}{2}
+    \end{align*}
+\end{itemize}
+
+\subsection{Ứng dụng của tích phân xác định}
+
+\subsubsection{Tính diện tích hình phẳng}
+
+\textbf{A. Toạ độ Descartes:}
+
+1. Diện tích giới hạn bởi $y = f(x)$, trục $Ox$, $x = a$, $x = b$:
+$$S = \int_a^b |f(x)|dx$$
+
+2. Diện tích giới hạn bởi $y = f_1(x)$, $y = f_2(x)$, $x = a$, $x = b$:
+$$S = \int_a^b |f_1(x) - f_2(x)|dx$$
+
+\textbf{B. Phương trình tham số:}
+
+Nếu đường cong cho bởi $\begin{cases} x = x(t) \\ y = y(t) \end{cases}$, $t \in [t_0, t_1]$ thì:
+$$S = \int_{t_0}^{t_1} y(t)x'(t)dt$$
+
+\textbf{C. Toạ độ cực:}
+
+Nếu đường cong cho bởi $r = r(\theta)$, $\theta \in [\alpha, \beta]$ thì:
+$$S = \frac{1}{2}\int_\alpha^\beta r^2(\theta)d\theta$$
+
+\subsubsection{Tính độ dài đường cong}
+
+\textbf{A. Toạ độ Descartes:}
+$$l = \int_a^b \sqrt{1 + [f'(x)]^2}dx$$
+
+\textbf{B. Phương trình tham số:}
+$$l = \int_{t_0}^{t_1} \sqrt{[x'(t)]^2 + [y'(t)]^2}dt$$
+
+\textbf{C. Toạ độ cực:}
+$$l = \int_\alpha^\beta \sqrt{r^2(\theta) + [r'(\theta)]^2}d\theta$$
+
+\subsubsection{Tính thể tích vật thể}
+
+\textbf{A. Công thức tổng quát:}
+$$V = \int_a^b S(x)dx$$
+trong đó $S(x)$ là diện tích thiết diện
+
+\textbf{B. Thể tích vật thể tròn xoay:}
+
+1. Quay quanh trục $Ox$:
+$$V = \pi\int_a^b [f(x)]^2dx$$
+
+2. Quay quanh trục $Oy$:
+$$V = 2\pi\int_a^b x \cdot f(x)dx$$
+
+\subsubsection{Tính diện tích mặt tròn xoay}
+
+\textbf{A. Quay quanh trục $Ox$:}
+$$S = 2\pi\int_a^b f(x)\sqrt{1 + [f'(x)]^2}dx$$
+
+\textbf{B. Quay quanh trục $Oy$:}
+$$S = 2\pi\int_a^b x\sqrt{1 + [f'(x)]^2}dx$$
+
+\subsection{Tích phân suy rộng}
+
+\subsubsection{Tích phân suy rộng loại 1 (cận vô hạn)}
+
+\begin{definition}
+\begin{enumerate}
+    \item $\int_a^{+\infty} f(x)dx = \lim_{A \to +\infty} \int_a^A f(x)dx$
+    
+    \item $\int_{-\infty}^b f(x)dx = \lim_{B \to -\infty} \int_B^b f(x)dx$
+    
+    \item $\int_{-\infty}^{+\infty} f(x)dx = \int_{-\infty}^a f(x)dx + \int_a^{+\infty} f(x)dx$
+\end{enumerate}
+
+Nếu giới hạn tồn tại và hữu hạn thì tích phân \textbf{hội tụ}, ngược lại tích phân \textbf{phân kỳ}
+\end{definition}
+
+\subsubsection{Tiêu chuẩn hội tụ loại 1}
+
+\begin{theorem}[Tiêu chuẩn so sánh]
+Nếu $0 \leq f(x) \leq g(x)$ trên $[a, +\infty)$ thì:
+\begin{itemize}
+    \item $\int_a^{+\infty} g(x)dx$ hội tụ $\Rightarrow$ $\int_a^{+\infty} f(x)dx$ hội tụ
+    \item $\int_a^{+\infty} f(x)dx$ phân kỳ $\Rightarrow$ $\int_a^{+\infty} g(x)dx$ phân kỳ
+\end{itemize}
+\end{theorem}
+
+\textbf{Tích phân mẫu:}
+$$\int_a^{+\infty} \frac{dx}{x^\alpha} \begin{cases} \text{hội tụ} & \text{nếu } \alpha > 1 \\ \text{phân kỳ} & \text{nếu } \alpha \leq 1 \end{cases}$$
+
+\subsubsection{Tích phân suy rộng loại 2 (hàm không bị chặn)}
+
+\begin{definition}
+Nếu $f$ không bị chặn tại $b$:
+$$\int_a^b f(x)dx = \lim_{\varepsilon \to 0^+} \int_a^{b-\varepsilon} f(x)dx$$
+\end{definition}
+
+\textbf{Tích phân mẫu:}
+$$\int_a^b \frac{dx}{(x-a)^\alpha} \begin{cases} \text{hội tụ} & \text{nếu } \alpha < 1 \\ \text{phân kỳ} & \text{nếu } \alpha \geq 1 \end{cases}$$
+
+
+\newpage
 \section{PHẦN BÀI TẬP ÔN TẬP}
 
 \subsection{Bài tập Chương 1: Giới hạn của dãy số}
@@ -889,6 +1191,7 @@ a & \text{nếu } x = 0
 
 \newpage
 
+\newpage
 \section{ĐỀ THI THỬ}
 
 \subsection{Đề thi thử số 1}
