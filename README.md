@@ -2,7 +2,7 @@
 
 ## Thông tin chung
 - Môn học: Giải Tích 1
-- Đối tượng: Sinh viên Học viện Công nghệ Bưu chính Viễn thông lớp GA04
+- Đối tượng: Sinh viên Học viện Công nghệ Bưu chính Viễn thông lớp GA04 và bạn bè :3
 - Phạm vi: Chương 1, 2, 3
 
 ## Nội dung chi tiết
