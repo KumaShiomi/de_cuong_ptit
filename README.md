@@ -99,3 +99,10 @@
 - Cực trị (điều kiện cần và điều kiện đủ)
 - Tính lồi, lõm và điểm uốn
 - Tiệm cận (đứng, ngang, xiên)
+
+### CHƯƠNG IV: PHÉP TÍNH TÍCH PHÂN
+#### 1. Tích phân bất định
+#### 2.Tích phân xác định
+#### 3. Tích phana hàm hữu tỉ
+#### 4. Tích phân hàm lượng giác
+#### 5. Tích phân suy rộng
