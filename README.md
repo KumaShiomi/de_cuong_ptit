@@ -103,6 +103,6 @@
 ### CHƯƠNG IV: PHÉP TÍNH TÍCH PHÂN
 #### 1. Tích phân bất định
 #### 2.Tích phân xác định
-#### 3. Tích phana hàm hữu tỉ
+#### 3. Tích phân hàm hữu tỉ
 #### 4. Tích phân hàm lượng giác
 #### 5. Tích phân suy rộng
